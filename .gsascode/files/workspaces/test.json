@@ -1,0 +1,11 @@
+{
+    "workspace": {
+        "name": "test",
+        "isolated": false,
+        "dateCreated": "2025-08-14 13:07:49.985 UTC",
+        "dataStores": "http://geoserver:8080/geoserver/rest/workspaces/test/datastores.json",
+        "coverageStores": "http://geoserver:8080/geoserver/rest/workspaces/test/coveragestores.json",
+        "wmsStores": "http://geoserver:8080/geoserver/rest/workspaces/test/wmsstores.json",
+        "wmtsStores": "http://geoserver:8080/geoserver/rest/workspaces/test/wmtsstores.json"
+    }
+}

@@ -1,0 +1,15 @@
+meta {
+  name: Get Workspaces
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseurl}}/geoserver/rest/workspaces
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

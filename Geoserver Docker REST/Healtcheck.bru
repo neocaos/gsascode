@@ -1,0 +1,19 @@
+meta {
+  name: Healtcheck
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseurl}}/geoserver/web/?10
+  body: none
+  auth: inherit
+}
+
+params:query {
+  10: 
+}
+
+settings {
+  encodeUrl: true
+}

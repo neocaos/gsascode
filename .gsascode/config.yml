@@ -1,0 +1,4 @@
+auth_header: Basic YWRtaW46bXlhd2Vzb21lZ2Vvc2VydmVy
+baseurl: http://geoserver:8080
+format: json
+path: /workspaces/gsascode/.gsascode/config.yml

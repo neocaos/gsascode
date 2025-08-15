@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Geoserver Docker REST",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

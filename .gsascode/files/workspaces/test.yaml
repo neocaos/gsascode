@@ -1,0 +1,8 @@
+workspace:
+  coverageStores: http://geoserver:8080/geoserver/rest/workspaces/test/coveragestores.json
+  dataStores: http://geoserver:8080/geoserver/rest/workspaces/test/datastores.json
+  dateCreated: 2025-08-14 13:07:49.985 UTC
+  isolated: false
+  name: test
+  wmsStores: http://geoserver:8080/geoserver/rest/workspaces/test/wmsstores.json
+  wmtsStores: http://geoserver:8080/geoserver/rest/workspaces/test/wmtsstores.json
