@@ -1,16 +1,14 @@
 import click
 
-from src.env import environment
+from src.core.env import environment
 import base64
 
-from src.log import log
 
 
 @click.command()
 @click.argument("user")
 @click.argument("password", envvar=["GS_PASS"])
-@click.pass_context
-def login(ctx, user, password):
+def login(user, password):
 
     click.echo(f"Hello from Login with {user}, {password}")
 
@@ -19,4 +17,3 @@ def login(ctx, user, password):
     auth_header = f"Basic {encoded_credentials}"
     click.echo(f"Authorization header: {auth_header}")
     environment.persist("auth_header", auth_header)
-    ctx.invoke(log)

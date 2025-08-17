@@ -1,10 +1,10 @@
 import click
 
-from src.env import environment
+from src.core.env import environment
 from src.init import init
-from src.auth import login
+from src.login import login
 from src.plan import plan
-from src.dump import dump
+from src.pull import pull
 
 
 @click.group()
@@ -15,7 +15,7 @@ def gsascode():
 gsascode.add_command(init)
 gsascode.add_command(login)
 gsascode.add_command(plan)  # GROUP
-gsascode.add_command(dump)
+gsascode.add_command(pull)
 
 
 if __name__ == "__main__":

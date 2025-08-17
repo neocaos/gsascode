@@ -1,16 +1,14 @@
+import os
 import click
 
 from src.types.modes import Mode
+from src.utils.workspaces import handle_workspaces
+from src.core.env import environment
 
 
-@click.group()
+@click.command()
 def plan():
+    
+    diffs = handle_workspaces(Mode.PLAN)
+    print("End!!!!!")
     pass
-
-
-@plan.command()
-def dump():
-    from src.utils.workspaces import handle_workspaces
-
-    workspaces = handle_workspaces(mode=Mode.DUMP)
-    click.echo("Hello from Dummp")

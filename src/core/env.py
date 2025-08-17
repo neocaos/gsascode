@@ -33,7 +33,7 @@ class Env(object):
         print(self.__target_config_dir)
         if not os.path.exists(self.__target_config_dir):
             os.mkdir(self.__target_config_dir)
-            
+
         if not os.path.exists(self.__target_config_files_dir):
             os.mkdir(self.__target_config_files_dir)
 
@@ -44,10 +44,9 @@ class Env(object):
                 yaml.dump({"path": f"{self.__target_config_file}"}, f)
 
         print("Exists")
-        
-        
+
     def get_format(self):
-        return self.get_config_key('format')
+        return self.get_config_key("format")
 
     def __init__(self):
 
@@ -67,7 +66,6 @@ class Env(object):
                 my_dict = json.load(f)
             except json.JSONDecodeError:
                 my_dict = {}
-        
 
     def persist(self, key, value):
 
@@ -75,48 +73,42 @@ class Env(object):
 
         new_config = current_config | {key: value}
         self.__set_config(new_config)
-        
-        
+
     def get_web_baseurl(self):
-        return self.get_config_key('baseurl') +"/geoserver/web/?0"
+        return self.get_config_key("baseurl") + "/geoserver/web/?0"
 
     def __set_config(self, config_dict):
         with open(self.__target_config_file, "w") as f:
-            yaml.dump(config_dict, f)   
+            yaml.dump(config_dict, f)
 
     def __get_config(self):
 
         with open(self.__target_config_file, "r") as file:
             return yaml.load(file, Loader)
-        
+
     def is_initialized(self):
         config = self.__get_config()
         return config is not None and config["baseurl"] is not None
-    
+
     def is_authenticated(self):
         config = self.__get_config()
         return config is not None and config["auth_header"] is not None
-    
+
     def is_reachable(self):
-        
+
         if not self.is_initialized() or not self.is_authenticated():
             return False
         url = self.get_web_baseurl()
         print(url)
-        response = requests.get(url,timeout=(5, None))
-        print("REsp =>",response)
+        response = requests.get(url, timeout=(5, None))
+        print("REsp =>", response)
         return response and response.status_code == 200
-        
-        
-    def get_config_key(self,key: str):
-        return dict(self.__get_config()).get(key,None)
-    
-    
+
+    def get_config_key(self, key: str):
+        return dict(self.__get_config()).get(key, None)
+
     def get_rest_baseurl(self):
-        return self.get_config_key('baseurl') + '/geoserver/rest'
-    
-        
-        
+        return self.get_config_key("baseurl") + "/geoserver/rest"
 
 
 environment = Env()

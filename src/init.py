@@ -1,16 +1,15 @@
 import click
 import os
 
-from src.env import environment
-from src.log import log
+from src.core.env import environment
 from src.types.format import Format
-
 
 
 @click.command()
 @click.argument("baseurl")
-@click.option('--format',
-              type=click.Choice(Format, case_sensitive=False),default="yaml")
+@click.option(
+    "--format", type=click.Choice(Format, case_sensitive=False), default="yaml"
+)
 @click.pass_context
 def init(ctx, baseurl, format):
     target_dir = environment.get_files_dir()
@@ -20,7 +19,4 @@ def init(ctx, baseurl, format):
 
     click.echo(f"Hello from Init ,{baseurl}")
     environment.persist("baseurl", baseurl)
-    environment.persist("format",format.name)
-    
-
-    ctx.invoke(log)
+    environment.persist("format", format.name)
