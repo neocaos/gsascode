@@ -28,9 +28,8 @@ class Env(object):
         return self.__target_config_files_dir
 
     def set_config(self):
-        print("Here")
+
         self.__target_config_dir = os.path.join(os.getcwd(), ".gsascode")
-        print(self.__target_config_dir)
         if not os.path.exists(self.__target_config_dir):
             os.mkdir(self.__target_config_dir)
 
@@ -38,12 +37,10 @@ class Env(object):
             os.mkdir(self.__target_config_files_dir)
 
         self.__target_config_file = os.path.join(self.__target_config_dir, "config.yml")
-        print(self.__target_config_file)
+
         if not os.path.exists(self.__target_config_file):
             with open(self.__target_config_file, "w") as f:
                 yaml.dump({"path": f"{self.__target_config_file}"}, f)
-
-        print("Exists")
 
     def get_format(self):
         return self.get_config_key("format")
@@ -59,7 +56,6 @@ class Env(object):
 
         self.set_config()
         config_file = self.__target_config_file
-        print("DDD =>", config_file)
 
         with open(config_file, "r") as f:
             try:
@@ -99,9 +95,8 @@ class Env(object):
         if not self.is_initialized() or not self.is_authenticated():
             return False
         url = self.get_web_baseurl()
-        print(url)
         response = requests.get(url, timeout=(5, None))
-        print("REsp =>", response)
+
         return response and response.status_code == 200
 
     def get_config_key(self, key: str):

@@ -1,0 +1,12 @@
+{
+    "values_changed": {
+        "root['workspace'][0]['name']": {
+            "new_value": "new",
+            "old_value": "test"
+        },
+        "root['workspace'][0]['href']": {
+            "new_value": "http://gs-target:8080/geoserver/rest/workspaces/new.json",
+            "old_value": "http://geoserver:8080/geoserver/rest/workspaces/test.json"
+        }
+    }
+}

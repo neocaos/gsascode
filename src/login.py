@@ -4,7 +4,6 @@ from src.core.env import environment
 import base64
 
 
-
 @click.command()
 @click.argument("user")
 @click.argument("password", envvar=["GS_PASS"])

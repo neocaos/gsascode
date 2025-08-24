@@ -4,7 +4,9 @@ import os
 import yaml
 
 from src.core.env import environment
+
 format = environment.get_format()
+
 
 def dump_file(folder: str, filename: str, info: dict):
     """
@@ -19,8 +21,7 @@ def dump_file(folder: str, filename: str, info: dict):
     Raises:
         Exception: If the format is not supported or if the dump operation fails.
     """
-    
-    
+
     if format == "yaml":
         return dump_yaml_file(folder, filename, info)
 
@@ -61,7 +62,6 @@ def dump_json_file(folder: str, filename: str, info: dict):
         OSError: If the file cannot be written due to an OS error.
         TypeError: If the info dictionary contains non-serializable objects.
     """
-    
 
     target_path = os.path.join(folder, f"{filename}.json")
     with open(target_path, "w+") as target_file:
